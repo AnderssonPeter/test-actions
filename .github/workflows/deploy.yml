@@ -14,5 +14,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+    - name: Extract branch name
+      id: extract_branch
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"     
     - name: Deploy
-      run: echo "Deploying $(echo ${GITHUB_HEAD_REF}) or ${{ github.event.inputs.release }} to ${{ github.event.inputs.environment }}!"
+      run: echo "Deploying ${{ steps.extract_branch.outputs.branch }} or ${{ github.event.inputs.release }} to ${{ github.event.inputs.environment }}!"
