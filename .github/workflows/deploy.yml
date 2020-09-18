@@ -1,0 +1,19 @@
+name: Deploy to test
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'Release'
+        required: true
+      environment:
+        description: 'Environment'
+        required: true
+        default: 'Test'
+
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "Hello ${{ github.event.inputs.release }}!"
+        echo "- in ${{ github.event.inputs.environment }}!"
