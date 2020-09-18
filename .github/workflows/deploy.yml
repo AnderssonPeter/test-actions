@@ -15,4 +15,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Deploy
-      run: echo Deploying ${GITHUB_REF#refs/heads/} or ${GITHUB_REF##*/} or ${{ github.event.inputs.release }} to ${{ github.event.inputs.environment }}!
+      run: echo Deploying ${{GITHUB_REF#refs/heads/}} or ${GITHUB_REF##*/} or ${{ github.event.inputs.release }} to ${{ github.event.inputs.environment }}!
