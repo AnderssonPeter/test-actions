@@ -1,4 +1,4 @@
-name: Deploy to test
+name: Deploy
 on:
   workflow_dispatch:
     inputs:
@@ -15,5 +15,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo "Hello ${{ github.event.inputs.release }}!"
-        echo "- in ${{ github.event.inputs.environment }}!"
+        echo "Deploying ${{ github.event.inputs.release }} to ${{ github.event.inputs.environment }}!"
